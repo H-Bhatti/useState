@@ -2,14 +2,24 @@ import React, { useState } from "react";
 import "./App.css";
 
 const App = () => {
+  let newTime = new Date().toLocaleTimeString();
+
   const state = useState();
-  const [count, setCount] = useState(0);
+  const [currentTime, getCurrTime] = useState(newTime);
+
   return (
     <>
-      <h1>{count}</h1>
+      <h1>Time</h1>
+      <h1>{currentTime}</h1>
       <div className="container">
-        <button className="button" onClick={() => setCount(count * 91)}>
-          click me
+        <button
+          onClick={() => {
+            newTime = new Date().toLocaleTimeString();
+            getCurrTime(newTime);
+          }}
+          className="button"
+        >
+          Get Time
         </button>
       </div>
     </>
