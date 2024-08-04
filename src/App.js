@@ -6,6 +6,16 @@ const App = () => {
 
   const state = useState();
   const [currentTime, getCurrTime] = useState(newTime);
+  // the first part of array is the current value and
+  // the second part is the value that is the updated value which will be the value you can pass the new value to this part
+  // and it will become the new current value
+  // the argument with the useState(value) is the value that is the initial value which can be anything
+
+  let automatic = () => {
+    newTime = new Date().toLocaleTimeString();
+    getCurrTime(newTime);
+  };
+  setInterval(automatic, 1000);
 
   return (
     <>
